@@ -1,0 +1,8 @@
+Pra rodar no terminal: python main.py
+
+
+Links úteis:
+
+https://lethain.com/genetic-algorithms-cool-name-damn-simple/
+
+https://www.redblobgames.com/pathfinding/a-star/implementation.html
