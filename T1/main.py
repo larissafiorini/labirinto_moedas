@@ -1,4 +1,6 @@
 from labirinto_moedas import *
+from A_star import *
+
 diagram = GridWithWeights(10, 10)
 
 #draw_grid(diagram, width=3)
