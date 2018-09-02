@@ -3,19 +3,22 @@ diagram = GridWithWeights(10, 10)
 
 #draw_grid(diagram, width=3)
 print("\n")
-start, goal = (1, 4), (7, 8)
+start = (1, 4)
 
 """O paredão onde a porta de saída está deve ficar sempre nos extremos
 da matriz: coluna 9, coluna 0, linha 0 ou linha 9."""
-my_list = random.choice([0, 9])
+line_list = random.choice([0, 9])
 column_line = random.choice([0, 1])
+
+parede_list = random.choice([0, 9])
+pared_list = random.choice([0, 9])
+
 # A porta de saída pode ficar em qualquer parte do paredão.
-saida = (column_line, my_list)
-muros = (column_line, my_list)
+saida = (column_line, line_list)
+muros = (column_line, line_list)
+baus = (saida[0], abs(saida[1]-1))
+paredes = (parede_list, pared_list)
+buracos = (random.choice([3, 5,7]), random.choice([3, 5,7]))
 
-draw_grid(diagram, width=3, start=start, goal=saida, muros=muros)
+draw_grid(diagram, width=3, start=start, goal=saida, muros=muros, baus=baus, paredes=paredes, buracos=buracos)
 
-my_list = [0, 9]
-random.choice(my_list)
-#for i in random(0, my_list_len):
-#    print(my_list[i])

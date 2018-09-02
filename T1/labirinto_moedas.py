@@ -20,9 +20,20 @@ class SquareGrid:
         results = filter(self.in_bounds, results)
         results = filter(self.passable, results)
         return results
+count=0
+c=0
+
+def somaCount():
+    global count    # Needed to modify global copy of globvar
+    count =count+1
+
+def somaCount2():
+    global c    # Needed to modify global copy of globvar
+    c =c+1
 
 def draw_tile(graph, id, style, width):
     r = "."
+    
     """if 'number' in style and id in style['number']: r = "%d" % style['number'][id]
     if 'point_to' in style and style['point_to'].get(id, None) is not None:
         (x1, y1) = id
@@ -37,7 +48,16 @@ def draw_tile(graph, id, style, width):
     if id in graph.walls: r = "#" * width"""
     if 'muros' in style:
         if id[style['muros'][0]]== style['muros'][1]: r="M"
+    if 'paredes' in style:
+        if id[style['paredes'][0]] == style['paredes'][1] and r!="S" and c<5:
+            r="M"
+            somaCount2()
     if 'goal' in style and id == style['goal']: r = "S"
+    if 'baus' in style:
+        if id[style['baus'][0]]== style['baus'][1] and r!="M" and count<3: 
+            r="B"
+            somaCount()
+    if 'baus' in style and id == style['buracos']: r="[]"
     return r
 
 # ** collects all the keyword arguments in a dictionary
