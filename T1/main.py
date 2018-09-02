@@ -20,5 +20,8 @@ baus = (saida[0], abs(saida[1]-1))
 paredes = (parede_list, pared_list)
 buracos = (random.choice([3, 5,7]), random.choice([3, 5,7]))
 
-draw_grid(diagram, width=3, start=start, goal=saida, muros=muros, baus=baus, paredes=paredes, buracos=buracos)
+came_from, cost_so_far = a_star_search(diagram, start, saida)
+print("path até saída do algoritmo A*: ")
+print(reconstruct_path(came_from, start, saida))
 
+draw_grid(diagram, width=3, point_to=came_from,start=start, goal=saida, muros=muros, baus=baus, paredes=paredes, buracos=buracos)
